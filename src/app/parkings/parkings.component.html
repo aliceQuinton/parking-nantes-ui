@@ -6,9 +6,8 @@
     <div> Heure de mise à jour : {{parking.heureMaj}}</div>-->
 
     <span style ="font-weight: bold;"> Parking {{parking.nom}}</span> <span style="float: right;">{{parking.statut}}</span><br>
-    <span *ngIf=> Places disponibles : {{parking.nbPlacesDispo}}</span><br>
+    <span *ngIf= "parking.statut !== 'Données non disponibles'"> Places disponibles : {{parking.nbPlacesDispo}}</span><br>
     <span> Nombre de places totales : {{parking.nbPlacesTotal}}</span><br>
-    <span> Statut : {{parking.statut}}</span><br>
     <span> Mise à jour à : {{parking.heureMaj}}</span><br>
     </mat-card>
 

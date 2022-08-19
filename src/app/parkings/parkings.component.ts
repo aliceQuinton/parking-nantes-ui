@@ -20,4 +20,17 @@ export class ParkingsComponent implements OnInit {
   );
   }
 
+
+  calculStyleStatut(parking: ParkingInfo){
+    if(parking.statut === 'Le parking est ouvert'){
+      return {color: 'green'}
+    }else if (parking.statut === 'Le parking est réservé aux abonné.e.s.'){
+      return {color: 'orange'}
+    }else if (parking.statut === 'Le parking est fermé'){
+      return {color: 'red'}
+    } else {
+      return { 'font-style': 'italic'}
+    }
+  }
+
 }

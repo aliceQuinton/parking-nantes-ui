@@ -1,11 +1,6 @@
+<mat-spinner></mat-spinner>
 <mat-card *ngFor="let parking of parkings" class="parking-card"> 
-    <!-- <div> Nom : {{parking.nom}}</div>
-    <div> Nombre de places disponibles : {{parking.nbPlacesDispo}}</div>
-    <div> Nombre de places totales : {{parking.nbPlacesTotal}}</div>
-    <div> Statut : {{parking.statut}}</div>
-    <div> Heure de mise à jour : {{parking.heureMaj}}</div>-->
-
-    <span style ="font-weight: bold;"> Parking {{parking.nom}}</span> <span style="float: right;">{{parking.statut}}</span><br>
+    <span style ="font-weight: bold;"> Parking {{parking.nom}}</span> <span style="float: right;" [ngStyle]="calculStyleStatut(parking)">{{parking.statut}}</span><br>
     <span *ngIf= "parking.statut !== 'Données non disponibles'"> Places disponibles : {{parking.nbPlacesDispo}}</span><br>
     <span> Nombre de places totales : {{parking.nbPlacesTotal}}</span><br>
     <span> Mise à jour à : {{parking.heureMaj}}</span><br>

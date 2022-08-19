@@ -37,11 +37,11 @@ export class ParkingsComponent implements OnInit {
 
       orientationNombrePlaces(parking: ParkingInfo){
         if(parking.nbPlacesDispo >= 30){
-          return {color: 'light-green'}
+          return {color: 'green'}
         }else if (parking.nbPlacesDispo < 10 ){
-            return {color: 'light-orange'}
+            return {color: 'orange'}
           } else if (parking.nbPlacesDispo === 0){
-            return {color: 'light-red'}
+            return {color: 'red'}
           } else {
             return {'font-style' : 'italic'}
           }

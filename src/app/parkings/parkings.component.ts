@@ -10,12 +10,14 @@ import {ParkingService} from '../parking.service';
 export class ParkingsComponent implements OnInit {
 
   parkings: ParkingInfo[] = [];
+  isLoaded: boolean = false;
   constructor(private parkingService: ParkingService) { }
 
   ngOnInit(): void {
   this.parkingService.getParkings().subscribe(
     (    reponse: ParkingInfo[]) => {
       this.parkings = reponse;
+      this.isLoaded = true;
     }
   );
   }
@@ -33,4 +35,18 @@ export class ParkingsComponent implements OnInit {
     }
   }
 
-}
+      orientationNombrePlaces(parking: ParkingInfo){
+        if(parking.nbPlacesDispo >= 30){
+          return {color: 'light-green'}
+        }else if (parking.nbPlacesDispo < 10 ){
+            return {color: 'light-orange'}
+          } else if (parking.nbPlacesDispo === 0){
+            return {color: 'light-red'}
+          } else {
+            return {'font-style' : 'italic'}
+          }
+        }
+      }
+  
+
+
